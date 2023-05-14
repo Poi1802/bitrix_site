@@ -2,6 +2,8 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
 $APPLICATION->SetTitle('Главная');
 ?>
+
+<!-- Slider -->
 <? $APPLICATION->IncludeComponent(
   "bitrix:news.list",
   "main_page_slider",
@@ -113,6 +115,7 @@ $APPLICATION->SetTitle('Главная');
   </div>
 </section>
 
+<!-- Activities -->
 <? $APPLICATION->IncludeComponent(
   "bitrix:news.list",
   "main_page_activities",
@@ -229,6 +232,7 @@ $APPLICATION->SetTitle('Главная');
   false
 ); ?>
 
+<!-- Infographics -->
 <? $APPLICATION->IncludeComponent(
   "bitrix:news.list",
   "main_page_infographics",
