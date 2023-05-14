@@ -1,8 +1,11 @@
 <?
-use Bitrix\Main\Page\Asset;
-
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
   die();
+
+use Bitrix\Main\Page\Asset;
+
+/** @global CMain $APPLICATION */
+
 ?>
 
 <!DOCTYPE html>
@@ -101,8 +104,32 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         <div class="row">
           <div class="col-md-6 col-sm-6">
             <div class="welcome">
-              <span><i class="fa fa-envelope"></i> admin@domain.com</span>
-              <span><i class="fa fa-phone"></i> +012 345 6789</span>
+              <span><i class="fa fa-envelope"></i>
+                <? $APPLICATION->IncludeComponent(
+                  "bitrix:main.include",
+                  "",
+                  array(
+                    "AREA_FILE_SHOW" => "file",
+                    "COMPOSITE_FRAME_MODE" => "A",
+                    "COMPOSITE_FRAME_TYPE" => "AUTO",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => SITE_TEMPLATE_PATH . "/includes/header_email.php"
+                  )
+                ); ?>
+              </span>
+              <span><i class="fa fa-phone"></i>
+                <? $APPLICATION->IncludeComponent(
+                  "bitrix:main.include",
+                  "",
+                  array(
+                    "AREA_FILE_SHOW" => "file",
+                    "COMPOSITE_FRAME_MODE" => "A",
+                    "COMPOSITE_FRAME_TYPE" => "AUTO",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => SITE_TEMPLATE_PATH . "/includes/header_phone.php"
+                  )
+                ); ?>
+              </span>
             </div>
           </div>
           <div class="col-md-6 col-sm-6">
